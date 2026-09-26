@@ -1,0 +1,334 @@
+/* =========================
+   ShopSphere Authentication
+   ========================= */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(79, 120, 180, 0.18), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(120, 80, 180, 0.15), transparent 30%),
+    #f5f7fb;
+  box-sizing: border-box;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 1050px;
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 70px rgba(20, 30, 50, 0.15);
+}
+
+/* =========================
+   Left Branding Section
+   ========================= */
+
+.auth-brand {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 55px;
+  color: white;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, #315f9e, #4f78b4 55%, #6d5ca8);
+}
+
+.auth-brand::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -100px;
+  right: -90px;
+}
+
+.auth-brand::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  bottom: -80px;
+  left: -70px;
+}
+
+.brand-logo {
+  position: relative;
+  z-index: 1;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 35px;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 1;
+}
+
+.brand-content h1 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -1.5px;
+}
+
+.brand-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 390px;
+  margin: 0;
+}
+
+.brand-features {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.brand-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* =========================
+   Right Form Section
+   ========================= */
+
+.auth-form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 55px 65px;
+}
+
+.auth-header {
+  margin-bottom: 32px;
+}
+
+.auth-header h2 {
+  margin: 0 0 8px;
+  color: #182338;
+  font-size: 30px;
+  letter-spacing: -0.7px;
+}
+
+.auth-header p {
+  margin: 0;
+  color: #7b8495;
+  font-size: 14px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #303a4d;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+  outline: none;
+  background: #fafbfc;
+  color: #1f2937;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #a4acb9;
+}
+
+.form-group input:focus {
+  border-color: #4f78b4;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(79, 120, 180, 0.1);
+}
+
+/* =========================
+   Main Button
+   ========================= */
+
+.auth-submit {
+  width: 100%;
+  height: 52px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #416da8, #5b7fba);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(65, 109, 168, 0.25);
+  transition: all 0.2s ease;
+}
+
+.auth-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(65, 109, 168, 0.32);
+}
+
+.auth-submit:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Messages
+   ========================= */
+
+.error-message,
+.success-message {
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.error-message {
+  color: #b42318;
+  background: #fff1f0;
+  border: 1px solid #ffd5d2;
+}
+
+.success-message {
+  color: #18794e;
+  background: #ecfdf3;
+  border: 1px solid #b7ebcd;
+}
+
+/* =========================
+   Back Button
+   ========================= */
+
+.auth-back {
+  position: fixed;
+  top: 25px;
+  left: 30px;
+  z-index: 10;
+  border: 1px solid #dce2eb;
+  background: rgba(255, 255, 255, 0.9);
+  color: #344054;
+  padding: 10px 17px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.auth-back:hover {
+  background: #ffffff;
+  transform: translateX(-2px);
+  box-shadow: 0 5px 15px rgba(20, 30, 50, 0.08);
+}
+
+/* =========================
+   Switch Login/Register
+   ========================= */
+
+.auth-switch {
+  margin-top: 25px;
+  text-align: center;
+  color: #7b8495;
+  font-size: 13px;
+}
+
+.auth-switch button {
+  border: none;
+  background: none;
+  color: #416da8;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+}
+
+.auth-switch button:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 800px) {
+  .auth-page {
+    padding: 20px;
+  }
+
+  .auth-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    max-width: 500px;
+  }
+
+  .auth-brand {
+    padding: 35px;
+    min-height: 260px;
+  }
+
+  .brand-content h1 {
+    font-size: 32px;
+  }
+
+  .brand-features {
+    display: none;
+  }
+
+  .auth-form-section {
+    padding: 40px 30px;
+  }
+
+  .auth-back {
+    top: 15px;
+    left: 15px;
+  }
+}
