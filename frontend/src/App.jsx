@@ -12,6 +12,8 @@ import OrderDetails from './components/OrderDetails';
 import AdminDashboard from './components/AdminDashboard';
 import AdminProductList from './components/AdminProductList';
 import AdminProductForm from './components/AdminProductForm';
+import AdminOrderList from './components/AdminOrderList';
+import AdminOrderDetails from './components/AdminOrderDetails';
 // Dummy product data
 const dummyProducts = [
   {
@@ -812,6 +814,66 @@ if (currentPage === 'order-details') {
 
         <AdminProductForm
           productId={selectedProductId}
+          setCurrentPage={setCurrentPage}
+        />
+
+        <Footer />
+      </div>
+    );
+  }
+
+  // =========================
+  // ADMIN ORDER LIST PAGE
+  // =========================
+
+  if (currentPage === 'admin-order-list') {
+    if (!user || user.role !== 'admin') {
+      setCurrentPage('home');
+      return null;
+    }
+
+    return (
+      <div className="app">
+        <Navbar
+          cartCount={totalCartItems}
+          user={user}
+          onNavigate={setCurrentPage}
+          onLogout={handleLogout}
+          currentPage={currentPage}
+        />
+
+        <AdminOrderList
+          setCurrentPage={setCurrentPage}
+          setSelectedOrderId={setSelectedOrderId}
+        />
+
+        <Footer />
+      </div>
+    );
+  }
+
+  // =========================
+  // ADMIN ORDER DETAILS PAGE
+  // =========================
+
+  if (currentPage === 'admin-order-details') {
+    if (!user || user.role !== 'admin') {
+      setCurrentPage('home');
+      return null;
+    }
+
+    return (
+      <div className="app">
+        <Navbar
+          cartCount={totalCartItems}
+          user={user}
+          onNavigate={setCurrentPage}
+          onLogout={handleLogout}
+          currentPage={currentPage}
+        />
+
+        <AdminOrderDetails
+          orderId={selectedOrderId}
           setCurrentPage={setCurrentPage}
         />
 

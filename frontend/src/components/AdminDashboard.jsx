@@ -117,12 +117,20 @@ const AdminDashboard = ({ user, setCurrentPage }) => {
           <p className="stat-value">{formatCurrency(stats.totalRevenue)}</p>
         </div>
       </div>
-      <button
-  onClick={() => setCurrentPage('admin-product-list')}
-  className="admin-nav-button"
->
-  Manage Products
-</button>
+      <div className="admin-actions">
+        <button
+          onClick={() => setCurrentPage('admin-product-list')}
+          className="admin-nav-button"
+        >
+          Manage Products
+        </button>
+        <button
+          onClick={() => setCurrentPage('admin-order-list')}
+          className="admin-nav-button"
+        >
+          Manage Orders
+        </button>
+      </div>
 
       <button
         onClick={() => setCurrentPage('home')}

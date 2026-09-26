@@ -9,4 +9,10 @@ const { admin } = require('../middleware/adminMiddleware');
 // @access  Private/Admin
 router.get('/dashboard-stats', protect, admin, getDashboardStats);
 
+// Import admin order routes
+const adminOrderRoutes = require('./adminOrderRoutes');
+
+// Use admin order routes
+router.use('/', adminOrderRoutes);
+
 module.exports = router;
