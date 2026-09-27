@@ -10,15 +10,15 @@ const AdminProductList = ({ setCurrentPage, setSelectedProductId }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/products');
-        const data = await response.json();
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/products`);
+    const data = await response.json();
 
-        if (!response.ok) {
-          throw new Error(data.message || 'Failed to fetch products');
-        }
+    if (!response.ok) {
+        throw new Error(data.message || 'Failed to fetch products');
+    }
 
-        setProducts(data.data);
-      } catch (err) {
+    setProducts(data.data);
+} catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
