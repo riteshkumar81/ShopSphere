@@ -2,21 +2,15 @@ import React from 'react';
 import './ProductSearch.css';
 
 const ProductSearch = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = React.useState('');
-
-  const handleSearch = (e) => {
-    const term = e.target.value;
-    setSearchTerm(term);
-    onSearch(term);
-  };
-
   return (
-    <div className="product-search">
+    <div className="search-control">
+      <span className="search-icon">⌕</span>
+
       <input
         type="text"
+        className="search-input"
         placeholder="Search products..."
-        value={searchTerm}
-        onChange={handleSearch}
+        onChange={(e) => onSearch(e.target.value)}
       />
     </div>
   );
