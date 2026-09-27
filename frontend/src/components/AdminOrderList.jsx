@@ -16,12 +16,11 @@ const AdminOrderList = ({ setCurrentPage, setSelectedOrderId }) => {
           setLoading(false);
           return;
         }
-        
-        const response = await fetch('http://localhost:5000/api/admin/orders', {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
+       const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/orders`, {
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+});
         
         const data = await response.json();
         

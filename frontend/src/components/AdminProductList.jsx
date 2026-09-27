@@ -35,14 +35,16 @@ const AdminProductList = ({ setCurrentPage, setSelectedProductId }) => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/admin/products/${productId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-
+     const response = await fetch(
+  `${import.meta.env.VITE_API_URL}/admin/products/${productId}`,
+  {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    }
+  }
+);
       const data = await response.json();
 
       if (!response.ok) {
