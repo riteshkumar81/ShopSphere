@@ -25,7 +25,7 @@ const AdminDashboard = ({ user, setCurrentPage }) => {
           return;
         }
 
-        const response = await fetch('http://localhost:5000/api/admin/dashboard-stats', {
+        fetch(`${import.meta.env.VITE_API_URL}/admin/dashboard-stats`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
