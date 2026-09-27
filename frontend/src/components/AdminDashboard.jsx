@@ -24,12 +24,13 @@ const AdminDashboard = ({ user, setCurrentPage }) => {
           setLoading(false);
           return;
         }
-
-        fetch(`${import.meta.env.VITE_API_URL}/admin/dashboard-stats`, {
+        const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/admin/dashboard-stats`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
-        });
+        }
+      );
 
         const data = await response.json();
 
