@@ -168,6 +168,34 @@ body {
   color: white;
 }
 
+/* Product Controls - Toolbar */
+.product-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  border-radius: 12px;
+}
+
+/* Product Controls - Toolbar */
+.product-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  border-radius: 12px;
+}
+
 /* Hero Section Styles */
 .hero-section {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),

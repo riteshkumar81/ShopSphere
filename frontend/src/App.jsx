@@ -14,8 +14,56 @@ import AdminProductList from './components/AdminProductList';
 import AdminProductForm from './components/AdminProductForm';
 import AdminOrderList from './components/AdminOrderList';
 import AdminOrderDetails from './components/AdminOrderDetails';
+import ProductSearch from './components/ProductSearch';
+import CategoryFilter from './components/CategoryFilter';
+import PriceSort from './components/PriceSort';
 // Dummy product data
-const dummyProducts = [
+function App() {
+const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [sortOption, setSortOption] = useState('default');
+
+  const handleSearch = (term) => {
+  setSearchTerm(term);
+};
+
+const handleCategorySelect = (category) => {
+  setSelectedCategory(category);
+};
+
+const handleSortChange = (sort) => {
+  setSortOption(sort);
+};
+const processedProducts = products
+  .filter((product) => {
+    const matchesSearch =
+      product.name?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      !selectedCategory ||
+      product.category?.toLowerCase() === selectedCategory.toLowerCase();
+
+    return matchesSearch && matchesCategory;
+  })
+  .sort((a, b) => {
+    const priceA = a.discountPrice ?? a.price;
+    const priceB = b.discountPrice ?? b.price;
+
+    if (sortOption === 'lowToHigh') {
+      return priceA - priceB;
+    }
+
+    if (sortOption === 'highToLow') {
+      return priceB - priceA;
+    }
+
+    return 0;
+  });
+
+  const dummyProducts = [
   {
     id: 1,
     name: "Wireless Headphones",
@@ -359,7 +407,7 @@ const Footer = () => {
 };
 
 // Main App
-function App() {
+
   // =========================
   // STATE
   // =========================
@@ -890,12 +938,33 @@ if (currentPage === 'order-details') {
     <div className="app">
 
       <Navbar
-        cartCount={totalCartItems}
-        user={user}
-        onNavigate={setCurrentPage}
-        onLogout={handleLogout}
-        currentPage={currentPage}
-      />
+  cartCount={totalCartItems}
+  user={user}
+  onNavigate={setCurrentPage}
+  onLogout={handleLogout}
+/>
+<div className="product-controls">
+            <ProductSearch onSearch={handleSearch} />
+            <CategoryFilter
+              categories={['Electronics', 'Clothing', 'Home', 'Books', 'Beauty', 'Sports', 'Toys', 'Other']}
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleCategorySelect}
+            />
+            <PriceSort
+              sortOption={sortOption}
+              onSortChange={handleSortChange}
+              />
+{processedProducts.map((product) => (
+            <ProductCard
+              key={product._id}
+              product={product}
+              onViewProduct={onViewProduct}
+              onAddToCart={onAddToCart}
+            />
+          ))}
+
+            
+          </div>
 
       <HeroSection />
 

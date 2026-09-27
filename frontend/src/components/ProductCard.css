@@ -1,0 +1,31 @@
+.product-card .price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-card .original-price {
+  text-decoration: line-through;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.product-card .effective-price {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.product-card .discount-percentage {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.product-card .stock-status {
+  color: #3498db;
+  margin: 8px 0;
+}
+
+.product-card .add-to-cart:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
